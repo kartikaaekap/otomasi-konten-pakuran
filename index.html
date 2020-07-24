@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="rgb(23, 92, 23)"/>
+    <title>Otomasi Konten Pakuran</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/slider.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+</head>
+<body>
+    <header>
+        <nav class="black" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo" id="logo-container">Pakuran</a>
+            </div>
+        </nav>
+    </header>
+    <div class="galleryContainer">
+        <div class="slideShowContainer">
+            <div id="playPause" onclick="playPauseSlides()"></div>
+            <div onclick="plusSlides(-1)" class="nextPrevBtn leftArrow"><span class="arrow arrowLeft"></span></div>
+            <div onclick="plusSlides(1)" class="nextPrevBtn rightArrow"><span class="arrow arrowRight"></span></div>
+            <div class="captionTextHolder"><p class="captionText slideTextFromTop"></p></div>
+            <div class="imageHolder">
+                <img class="responsive-img" src="images/pakuran.jpg">
+                <p class="captionText">Selamat Datang</p>
+            </div>
+            <div class="imageHolder">
+                <img class="responsive-img" src="images/pakuran1.jpg">
+                <p class="captionText">Aplikasi Otomasi Konten</p>
+            </div>
+            <div class="imageHolder">
+                <img class="responsive-img" src="images/pakuran2.jpg">
+                <p class="captionText">Desa Pakuran, Kecamatan Buayan</p>
+            </div>
+            <div class="imageHolder">
+                <img class="responsive-img" src="images/pakuran3.jpg">
+                <p class="captionText">~KKN-PPM UGM 2020~</p>
+            </div>
+        </div>
+        <div id="dotsContainer"></div>
+    </div>
+    <div class="wrapper">
+        <h3 style="text-align: center; font-weight: bold; color: rgb(23, 92, 23); margin-top: 60px; margin-bottom: 30px;">Artikel Website</h3>
+        <form id="connection-information-form">
+            <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">title</i>
+                      <textarea id="icon_prefix" class="materialize-textarea"></textarea>
+                      <label for="icon_prefix">Topik (Cth : Posyandu)</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix2">Kapan kegiatan tersebut terjadi?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix3" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix3">Apa nama kegiatan tersebut?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix4" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix4">Siapa saja yang terlibat dalam kegiatan tersebut?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix5" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix5">Dimana kegiatan tersebut berlangsung?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix6" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix6">Apa tujuan kegiatan tersebut diselenggarakan?</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+           <input type="button" onclick="startConnect()" value="Generate">
+           <input type="button" onclick="startDelete()" value="Delete">
+        </form>
+        <div id="messages"></div>
+     </div>
+    <footer>
+        <p>&copy; 2020 Design By : KKN-PPN UGM Buayan 2020</p>
+    </footer>
+<script>
+    // REGISTER SERVICE WORKER
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function() {
+            console.log("Pendaftaran ServiceWorker berhasil");
+            })
+            .catch(function() {
+            console.log("Pendaftaran ServiceWorker gagal");
+            });
+        });
+    } else {
+        console.log("ServiceWorker belum didukung browser ini.");
+    }
+    </script>
+<script src="js/materialize.min.js"></script>
+<script src="js/myScript.js"></script>
+<script src="connect.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "name": "Otomasi Konten Pakuran",
+    "short_name": "Otomasi Konten",
+    "description": "Aplikasi Otomasi Konten Pakuran",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "rgb(23, 92, 23)",
+    "theme_color": "rgb(23, 92, 23)",
+    "icons": [
+        {
+            "src": "icon.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
