@@ -15,6 +15,16 @@ input[type=submit] {
     margin: 4px 2px;
     cursor: pointer;
 }
+input[type=button] {
+    background-color: rgb(238, 31, 31);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 input[type=submit]:hover {
     background-color: black;
 }

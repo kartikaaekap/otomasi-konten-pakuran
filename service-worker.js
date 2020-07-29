@@ -30,20 +30,34 @@ self.addEventListener("install", function(event) {
   );
 });
 self.addEventListener("fetch", function(event) {
-    event.respondWith(
-      caches
-        .match(event.request, { cacheName: CACHE_NAME })
-        .then(function(response) {
-          if (response) {
-            console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-            return response;
-          }
-   
-          console.log(
-            "ServiceWorker: Memuat aset dari server: ",
-            event.request.url
-          );
-          return fetch(event.request);
+  event.respondWith(
+    caches.match(event.request).then(function (cached) {
+      if (cached) {
+        return cached
+      }
+
+      return fetch(event.request).then(function(response) {
+        const responseToCache = response.clone()
+        caches.open(CACHE_NAME).then(function(cache) {
+          cache.put(event.request.url, responseToCache);
         })
-    );
+        return response;
+      })
+    })
+ );
+});
+
+self.addEventListener("activate", function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheName != CACHE_NAME) {
+            console.log("ServiceWorker: cache " + cacheName + " dihapus");
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
