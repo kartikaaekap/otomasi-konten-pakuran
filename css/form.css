@@ -5,7 +5,7 @@
     padding-right: 10px;
     padding-left: 10px;
 }
-input[type=button] {
+input[type=submit] {
     background-color: rgb(23, 92, 23);
     border: none;
     color: white;
@@ -15,7 +15,7 @@ input[type=button] {
     margin: 4px 2px;
     cursor: pointer;
 }
-input[type=button]:hover {
+input[type=submit]:hover {
     background-color: black;
 }
 #messages {
